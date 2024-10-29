@@ -3,7 +3,6 @@ set -e
 set -uo pipefail
 trap 's=$?; echo ": Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-#set -x
 
 # map openwrt arch to golang GOARCH and other enviroment variables
 # GOMIPS: https://github.com/openwrt/packages/blob/openwrt-22.03/lang/golang/golang-values.mk#L175
@@ -18,7 +17,6 @@ declare -A ARCH_GO_ENV=( \
 # ARCH is a comma separated list of openwrt arch to build
 : "${ARCH:="$(echo "${!ARCH_GO_ENV[@]}" | tr ' ' ',')"}"
 : "${BRANCH:=}"
-: "${PATCH:=true}"
 
 
 if [ -z "$BRANCH" ]; then
@@ -101,7 +99,7 @@ build() {
     mkdir -p "$ipk_work_base"
     for arch in ${ARCH//,/ }
     do
-        echo "Building for $arch"
+        echo "Building for $BRANCH $arch"
         if [ ! -v 'ARCH_GO_ENV[${arch}]' ];then
             echo "ERROR: arch $arch not defined in ARCH_GO_ENV!"
             exit 2
@@ -136,7 +134,7 @@ makeControl() {
 }
 
 makePackage() {
-    version="$(cat $code/VERSION.txt)"
+    version="${BRANCH:1}"
     echo "===== Building Package for $version $arch ====="
     cp -r "$SCRIPT_DIR/ipk/" "$ipk_work"
     mkdir -p "$output"
@@ -214,7 +212,7 @@ else
     exit 0
 fi
 
-echo "==== Building tailscale $BRANCH for $ARCH"
+echo "==== Building mediamtx $BRANCH for $ARCH"
 
 clean
 #cleanAll
