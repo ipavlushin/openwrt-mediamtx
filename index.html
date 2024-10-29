@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <title>OpenWrt MediaMTX</title>
+</head>
+<body>
+  <header>
+    <h1>OpenWrt MediaMTX Repository</h1>
+    <p>Opkg feed for MediaMTX</p>
+  </header>
+
+  <main>
+    <h3>MediaMTX packages</h3>
+    <p>Backport of the latest <a target="_blank" href="https://github.com/bluenviron/mediamtx">MediaMTX</a> to OpenWrt 19.07.</p>
+
+    <h4>Browse</h4>
+    <ul>
+        <li><a href="packages/19.07/">19.07 Packages</a></li>
+    </ul>
+
+    <h3>Installation</h3>
+
+    <p>Add this repository feed by following the instructions below or manually download and install the correct ipk file from the above link.</p>
+
+    <p><strong>NOTE:</strong> It is normal for the installation to give an error about a failed log upload after finishing when the service starts.</p>
+
+    <h4>Web UI</h4>
+
+    <p>Navigate to System -> Software</p>
+    <p>Add the following feed to <code>/etc/opkg/customfeeds.conf</code></p>
+    <pre><code>src/gz openwrt-mediamtx https://ipavlushin.github.io/openwrt-mediamtx/packages/19.07</code></pre>
+
+    <p>Update the feeds</p>
+
+    <p>Search for mediamtx, and install it.</p>
+
+    <h4>CLI</h4>
+<pre><code>echo "src/gz openwrt-mediamtx https://ipavlushin.github.io/openwrt-mediamtx/packages/19.07" >> "/etc/opkg/customfeeds.conf"
+opkg update
+opkg install mediamtx</code></pre>
+
+
+    <h3>Configuration</h3>
+
+      <p>After installation configure MediaMTX for your needs by editing config file <code>/etc/config/mediamtx.yaml</code></p>
+
+  </main>
+
+  <footer>
+    <p><a target="_blank" href="https://github.com/ipavlushin/openwrt-mediamtx">Source on Github</a></p>
+  </footer>
+</body>
+</html>
