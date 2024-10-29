@@ -159,7 +159,7 @@ makePackage() {
 
     # package
     pkg_out="$(pwd)/$output"
-    pkg_file="tailscale_${version}_${arch}.ipk"
+    pkg_file="mediamtx${version}_${arch}.ipk"
     pushd "$ipk_work/"
     tar  $tar_options -czf "$pkg_out/$pkg_file" ./debian-binary ./data.tar.gz ./control.tar.gz 
     popd
