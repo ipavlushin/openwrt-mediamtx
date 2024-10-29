@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <title>OpenWrt Tailscale</title>
+    <title>OpenWrt MediaMTX</title>
 </head>
 <body>
   <header>
-    <h1>OpenWrt Tailscale Repository</h1>
-    <p>Opkg feed for Tailscale</p>
+    <h1>OpenWrt MediaMTX Repository</h1>
+    <p>Opkg feed for MediaMTX</p>
   </header>
 
   <main>
-    <h3>Tailscale packages</h3>
-    <p>Backport of the latest <a target="_blank" href="https://tailscale.com/">Tailscale</a> to OpenWrt 19.07.</p>
-
-    <p>These are built as <a target="_blank" href="https://tailscale.com/kb/1207/small-tailscale/">combined binaries</a> 
-      to reduce disk space, and are <a target="_blank" href="https://github.com/tailscale/tailscale/issues/3659">patched</a> to not conflict with mwan3.</p>
+    <h3>MediaMTX packages</h3>
+    <p>Backport of the latest <a target="_blank" href="https://github.com/bluenviron/mediamtx">MediaMTX</a> to OpenWrt 19.07.</p>
 
     <h4>Browse</h4>
     <ul>
@@ -34,35 +31,26 @@
 
     <p>Navigate to System -> Software</p>
     <p>Add the following feed to <code>/etc/opkg/customfeeds.conf</code></p>
-    <pre><code>src/gz openwrt-tailscale https://lanrat.github.io/openwrt-tailscale-repo/packages/19.07</code></pre>
+    <pre><code>src/gz openwrt-mediamtx https://ipavlushin.github.io/openwrt-mediamtx/packages/19.07</code></pre>
 
     <p>Update the feeds</p>
 
-    <p>Search for tailscale, and install it.</p>
+    <p>Search for mediamtx, and install it.</p>
 
     <h4>CLI</h4>
-<pre><code>echo "src/gz openwrt-tailscale https://lanrat.github.io/openwrt-tailscale-repo/packages/19.07" >> "/etc/opkg/customfeeds.conf"
+<pre><code>echo "src/gz openwrt-mediamtx https://ipavlushin.github.io/openwrt-mediamtx/packages/19.07" >> "/etc/opkg/customfeeds.conf"
 opkg update
-opkg install tailscale</code></pre>
+opkg install mediamtx</code></pre>
 
 
     <h3>Configuration</h3>
 
-    <p>After installation tailscaled should already be running and waiting for you to login and configure it.</p>
-
-    <p>For example:</p>
-
-    <pre><code>tailscale up --accept-dns=false --advertise-routes=10.0.0.0/24 --advertise-exit-node</code></pre>
-
-
-    <h3>What about OpenWrt 21.02+?</h3>
-
-    <p>Tailscale is already in the <a target="_blank" href="https://openwrt.org/packages/pkgdata/tailscale">default feeds</a> for newer versions of OpenWrt.</p>
+      <p>After installation configure MediaMTX for your needs by editing config file <code>/etc/config/mediamtx.yaml</code></p>
 
   </main>
 
   <footer>
-    <p><a target="_blank" href="https://github.com/lanrat/openwrt-tailscale-repo">Source on Github</a></p>
+    <p><a target="_blank" href="https://github.com/ipavlushin/openwrt-mediamtx">Source on Github</a></p>
   </footer>
 </body>
 </html>

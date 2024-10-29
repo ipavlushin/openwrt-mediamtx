@@ -23,13 +23,13 @@ declare -A ARCH_GO_ENV=( \
 
 if [ -z "$BRANCH" ]; then
     echo "Branch unset, checking for latest release..."
-    BRANCH="$(curl -s https://api.github.com/repos/tailscale/tailscale/releases/latest  | grep tag_name | cut -d \" -f4)"
+    BRANCH="$(curl -s https://api.github.com/repos/bluenviron/mediamtx/releases/latest  | grep tag_name | cut -d \" -f4)"
     echo "Latest release is $BRANCH"
 fi
 
 
-current_version_url='https://lanrat.github.io/openwrt-tailscale-repo/packages/19.07/version.txt'
-code="tailscale"
+current_version_url='https://ipavlushin.github.io/openwrt-mediamtx/packages/19.07/version.txt'
+code="mediamtx"
 ipk_work_base="ipk-work"
 output="packages/19.07"
 
@@ -76,7 +76,7 @@ popd() { builtin popd > /dev/null; }
 
 clean() {
     echo "===== Cleaning env ====="
-    rm -f "$code/tailscale.*.combined"
+    rm -f "$code/mediamtx.*.combined"
     rm -rf "$ipk_work_base"
 }
 
@@ -93,22 +93,7 @@ getSource() {
     if [ -d "$code" ]; then
         rm -rf "$code"
     fi
-    git clone --depth 1 "https://github.com/tailscale/tailscale.git" -c advice.detachedHead=false --branch "$BRANCH" "$code/"
-    # git -C "$code" checkout .
-    # git -C "$code" pull --tags
-    # git -C "$code" checkout "$BRANCH"
-
-    if [ "$PATCH" = true ] ; then
-        patchSource
-    fi
-}
-
-# patch tailscale to not conflict with mwan3
-# https://github.com/tailscale/tailscale/issues/3659
-patchSource() {
-    echo "===== Patching Source ====="
-    # grep -lrP '\b52[1357]0\b' "$code" | xargs -n1 sed -Ei 's/\b52([1357])0\b/13\10/g'
-    git -C "$code" apply --numstat "$SCRIPT_DIR/route_mwan3.patch"
+    git clone --depth 1 "https://github.com/bluenviron/mediamtx.git" -c advice.detachedHead=false --branch "$BRANCH" "$code/"
 }
 
 build() {
@@ -132,7 +117,7 @@ buildGoCombined() {
     envs="${ARCH_GO_ENV["${arch}"]:-${arch}}"
     echo "===== Building binary for ${arch} ($envs)  ====="
     pushd "$code"
-    (export $envs && GOOS=linux go build -o "tailscale.${arch}.combined" -tags ts_include_cli -trimpath -ldflags="-s -w" ./cmd/tailscaled)
+    (export $envs && GOOS=linux go generate ./... && GOOS=linux go build -o "mediamtx.${arch}.combined" -tags ts_include_cli -trimpath -ldflags="-s -w" .)
     popd
 }
 
@@ -140,21 +125,14 @@ makeControl() {
     sourceDateEpoch="$(git -C $code show -s --format=%ct)"
     size="$(wc -c <"$ipk_work/data.tar.gz")"
 
-    echo "Package: tailscale"
+    echo "Package: mediamtx"
     echo "Version: $version"
-    echo "Depends: libc, libustream-openssl, ca-bundle, kmod-tun"
-    echo "Provides: tailscale tailscaled"
-    echo "Conflicts: tailscaled"
-    #echo "Source: feeds/packages/net/tailscale"
-    #echo "SourceName: tailscaled"
-    echo "License: BSD-3-Clause"
-    #echo "LicenseFiles: LICENSE"
-    echo "Section: net"
+    echo "Provides: mediamtx"
+    echo "License: MIT"
     echo "SourceDateEpoch: $sourceDateEpoch"
-    #echo "Maintainer: NAME <EMAIL>"
     echo "Architecture: $arch"
     echo "Installed-Size:$size"
-    echo "Description: Creates a secure network between your servers, computers, and cloud instances. Even when separated by firewalls or subnets. This package combines both the tailscaled daemon and tailscale CLI utility in a single combined (multicall) executable."
+    echo "Description: MediaMTX is a ready-to-use and zero-dependency real-time media server and media proxy that allows to publish, read, proxy, record and playback video and audio streams."
 }
 
 makePackage() {
@@ -169,8 +147,8 @@ makePackage() {
     fi
 
     # data
-    mkdir -p "$ipk_work/data/usr/sbin"
-    cp "$code/tailscale.${arch}.combined" "$ipk_work/data/usr/sbin/tailscaled"
+    mkdir -p "$ipk_work/data/usr/bin"
+    cp "$code/mediamtx.${arch}.combined" "$ipk_work/data/usr/bin/mediamtx"
     pushd "$ipk_work/data/"
     tar $tar_options -czf "../data.tar.gz" ./*
     popd

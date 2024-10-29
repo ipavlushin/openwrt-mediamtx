@@ -1,5 +1,5 @@
 *.ipk
-tailscale/
+mediamtx/
 ipk-work/
 packages/
 opkg-utils/

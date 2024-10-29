@@ -60,12 +60,12 @@ genHTMLTop() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <title>OpenWrt Tailscale</title>
+    <title>OpenWrt MediaMTX</title>
 </head>
 <body>
   <header>
-    <h1>OpenWrt Tailscale Repository</h1>
-    <p>Opkg feed for Tailscale</p>
+    <h1>OpenWrt MediaMTX Repository</h1>
+    <p>Opkg feed for MediaMTX</p>
   </header>
 
   <main>
@@ -77,7 +77,7 @@ genHTMLBottom() {
 </main>
 
   <footer>
-    <p><a target="_blank" href="https://github.com/lanrat/openwrt-tailscale-repo">Source on Github</a></p>
+    <p><a target="_blank" href="https://github.com/ipavlushin/openwrt-mediamtx">Source on Github</a></p>
   </footer>
 </body>
 </html>

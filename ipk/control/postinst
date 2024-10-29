@@ -1,6 +1,0 @@
-#!/bin/sh
-[ "${IPKG_NO_SCRIPT}" = "1" ] && exit 0
-[ -s ${IPKG_INSTROOT}/lib/functions.sh ] || exit 0
-. ${IPKG_INSTROOT}/lib/functions.sh
-ln -fs ${IPKG_INSTROOT}/usr/sbin/tailscaled ${IPKG_INSTROOT}/usr/sbin/tailscale
-default_postinst $0 $@

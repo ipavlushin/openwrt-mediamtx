@@ -1,8 +1,8 @@
-# [Tailscale Builder for OpenWrt](https://lanrat.github.io/openwrt-tailscale-repo)
+# [MediaMTX Builder for OpenWrt](https://lanrat.github.io/openwrt-tailscale-repo)
 
-Builds Tailscale combined ipk packages for OpenWrt.
+Builds MediaMTX combined ipk packages for OpenWrt.
 
-For information on how to use this, see: [lanrat.github.io/openwrt-tailscale-repo](https://lanrat.github.io/openwrt-tailscale-repo).
+For information on how to use this, see: [ipavlushin.github.io/openwrt-mediamtx](https://ipavlushin.github.io/openwrt-mediamtx).
 
 
 ## Building
