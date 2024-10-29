@@ -117,7 +117,7 @@ buildGoCombined() {
     envs="${ARCH_GO_ENV["${arch}"]:-${arch}}"
     echo "===== Building binary for ${arch} ($envs)  ====="
     pushd "$code"
-    (export $envs && GOOS=linux go generate ./... && GOOS=linux go build -o "mediamtx.${arch}.combined" -tags ts_include_cli -trimpath -ldflags="-s -w" .)
+    (export $envs && GOOS=linux GOARCH=amd64 go generate ./... && GOOS=linux go build -o "mediamtx.${arch}.combined" -tags ts_include_cli -trimpath -ldflags="-s -w" .)
     popd
 }
 
