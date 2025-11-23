@@ -11,6 +11,7 @@ declare -A ARCH_GO_ENV=( \
     ["mipsel_24kc"]="GOARCH=mipsle GOMIPS=softfloat" \
     ["arm_cortex-a7"]="GOARCH=arm" \
     ["aarch64_generic"]="GOARCH=arm64" \
+    ["aarch64_cortex-a53"]="GOARCH=arm64" \
     ["mips_siflower"]="GOARCH=mipsle GOMIPS=hardfloat" \
 )
 
