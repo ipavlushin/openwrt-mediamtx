@@ -1,0 +1,78 @@
+Package: mediamtx
+Version: 1.21.1
+Provides: mediamtx
+Architecture: aarch64_cortex-a53
+SHA256sum: 594906a622415192674f6b7aab8b7045d845429b6f371e290954f5f37d200b3b
+Size: 17152093
+Filename: mediamtx1.21.1_aarch64_cortex-a53.ipk
+Description: MediaMTX is a ready-to-use and zero-dependency real-time media server and media proxy that allows to publish, read, proxy, record and playback video and audio streams.
+License: MIT
+SourceDateEpoch: 1789920057
+Installed-Size: 17240348
+
+
+Package: mediamtx
+Version: 1.21.1
+Provides: mediamtx
+Architecture: aarch64_generic
+SHA256sum: 53d4a6f75056d51d81f7fc283f7974edc6e49d1fe10d39ad45622591e0d92dd6
+Size: 17151948
+Filename: mediamtx1.21.1_aarch64_generic.ipk
+Description: MediaMTX is a ready-to-use and zero-dependency real-time media server and media proxy that allows to publish, read, proxy, record and playback video and audio streams.
+License: MIT
+SourceDateEpoch: 1789920057
+Installed-Size: 17240484
+
+
+Package: mediamtx
+Version: 1.21.1
+Provides: mediamtx
+Architecture: arm_cortex-a7
+SHA256sum: 773055ce5f625d51ba0bc989bae44b617be89b124f9dab22b264529a7c1ce77f
+Size: 17574745
+Filename: mediamtx1.21.1_arm_cortex-a7.ipk
+Description: MediaMTX is a ready-to-use and zero-dependency real-time media server and media proxy that allows to publish, read, proxy, record and playback video and audio streams.
+License: MIT
+SourceDateEpoch: 1789920057
+Installed-Size: 17635234
+
+
+Package: mediamtx
+Version: 1.21.1
+Provides: mediamtx
+Architecture: mips_24kc
+SHA256sum: d2b33d6a583fd5bd2f0984783db414ff40c6e38374e52e45ae634afeea66ab45
+Size: 12927495
+Filename: mediamtx1.21.1_mips_24kc.ipk
+Description: MediaMTX is a ready-to-use and zero-dependency real-time media server and media proxy that allows to publish, read, proxy, record and playback video and audio streams.
+License: MIT
+SourceDateEpoch: 1789920057
+Installed-Size: 12969660
+
+
+Package: mediamtx
+Version: 1.21.1
+Provides: mediamtx
+Architecture: mips_siflower
+SHA256sum: ab009a1807eac98c63bbf552de4c94591d58667f30db100e86ba49ad4b321309
+Size: 12689233
+Filename: mediamtx1.21.1_mips_siflower.ipk
+Description: MediaMTX is a ready-to-use and zero-dependency real-time media server and media proxy that allows to publish, read, proxy, record and playback video and audio streams.
+License: MIT
+SourceDateEpoch: 1789920057
+Installed-Size: 12721508
+
+
+Package: mediamtx
+Version: 1.21.1
+Provides: mediamtx
+Architecture: mipsel_24kc
+SHA256sum: f884769eccb4a30cd3d9fe5bbafde7bbaa0f456434d77a69dc89b361f00d54b9
+Size: 12687241
+Filename: mediamtx1.21.1_mipsel_24kc.ipk
+Description: MediaMTX is a ready-to-use and zero-dependency real-time media server and media proxy that allows to publish, read, proxy, record and playback video and audio streams.
+License: MIT
+SourceDateEpoch: 1789920057
+Installed-Size: 12719708
+
+
